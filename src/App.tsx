@@ -8,6 +8,7 @@ import axios from "axios";
 import {TodoPage} from "./pages/todoPage.tsx";
 import {AllStatusColumnCard} from "./components/AllStatusColumnCard.tsx";
 import {Navigation} from "./components/Navigation.tsx";
+import {AddTodo} from "./components/AddTodo.tsx";
 
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
                 <Route path="/done" element={<TodoStatusColumnCard status={"DONE"} todos={todos}/>}/>
                 <Route path="/todo/:id" element={<TodoPage />}/>
             </Routes>
+            <AddTodo />
         </div>
     )
 }
