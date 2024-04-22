@@ -5,7 +5,11 @@ import {TodoCard} from "../components/TodoCard.tsx";
 import axios from "axios";
 
 export function TodoPage() {
-    const [todo, setTodo] = useState<Todo>({});
+    const [todo, setTodo] = useState<Todo>({
+        id: "",
+        description: "",
+        status: ""
+    });
 
     const params = useParams()
 

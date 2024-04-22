@@ -1,4 +1,6 @@
 import {Todo} from "../data/todo.ts";
+import {Link} from "react-router-dom";
+import '../assets/styles.css';
 
 
 type TodoCardParams = {
@@ -7,11 +9,13 @@ type TodoCardParams = {
 
 export function TodoCard({todo}: TodoCardParams) {
     return (<>
-        <h3>TodoCard</h3>
-        <p>Id is {todo.id}</p>
-        <p>{todo.description}</p>
-        <p>Details</p>
-        <p>Edit</p>
-        <p>Progress</p>
+        <div className="todo-card">
+            <h3>TodoCard</h3>
+            <p>Id is {todo.id}</p>
+            <p>{todo.description}</p>
+            <Link to={"/todo/" + todo.id}>Details</Link>
+            <p>Edit</p>
+            <p>Progress</p>
+        </div>
     </>)
 }
