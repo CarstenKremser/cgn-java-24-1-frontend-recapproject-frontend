@@ -7,6 +7,7 @@ import {Todo} from "./data/todo.ts";
 import axios from "axios";
 import {TodoPage} from "./pages/todoPage.tsx";
 import {AllStatusColumnCard} from "./components/AllStatusColumnCard.tsx";
+import {Navigation} from "./components/Navigation.tsx";
 
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
 
     return (
         <div className="App">
-            <h1>ToDo Board</h1>
+            <Navigation />
             <Routes>
                 <Route path="/" element={<AllStatusColumnCard  todos={todos} />}/>
                 <Route path="/open" element={<TodoStatusColumnCard status={"OPEN"} todos={todos}/>}/>
