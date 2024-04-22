@@ -1,12 +1,37 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
+import {Route, Routes} from "react-router";
+import {TodoStatusColumnCard} from "./components/TodoStatusColumnCard.tsx";
 import './App.css'
+import {TodoCard} from "./components/TodoCard.tsx";
+import {Todo} from "./data/todo.ts";
+import axios from "axios";
+import {TodoPage} from "./pages/todoPage.tsx";
+
 
 export default function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-        <h1>Hello World!</h1>
-    </>
-  )
+    const [todos, setTodos] = useState<Todo[]>([])
+
+    function getTodos() {
+        axios
+            .get("/api/todo")
+            .then(response =>
+                setTodos(response.data)
+        )
+    }
+
+    useEffect(() => getTodos(),[todos])
+
+    return (
+        <>
+            <h1>ToDo Board</h1>
+            <Routes>
+                <Route path="/" element={<TodoStatusColumnCard status={"OPEN"} todos={todos} />}/>
+                <Route path="/open" element={<TodoStatusColumnCard status={"OPEN"} todos={todos}/>}/>
+                <Route path="/inprog" element={<TodoStatusColumnCard status={"IN_PROGRESS"} todos={todos}/>}/>
+                <Route path="/done" element={<TodoStatusColumnCard status={"DONE"} todos={todos}/>}/>
+                <Route path="/todo/:id" element={<TodoPage />}/>
+            </Routes>
+        </>
+    )
 }
