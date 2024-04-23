@@ -1,14 +1,14 @@
-import {TodoStatusColumnCard} from "./TodoStatusColumnCard.tsx";
+import {TodoStatusColumnCard} from "../components/TodoStatusColumnCard.tsx";
 import {Todo} from "../data/todo.ts";
 
 
-type AllStatusColumnCardParams = {
+type ThreeColumnPageParams = {
     todos: Todo[]
 }
 
-export function AllStatusColumnCard({todos}: AllStatusColumnCardParams): JSX.Element {
+export function ThreeColumnPage({todos}: ThreeColumnPageParams): JSX.Element {
     return (<>
-            <ul className="status-columns">
+            <ul className="status-columns three-column-layout">
                 <li className="status-column">
                     <TodoStatusColumnCard status={"OPEN"} todos={todos}/>
                 </li>
