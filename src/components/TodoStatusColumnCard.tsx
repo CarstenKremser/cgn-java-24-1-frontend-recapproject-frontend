@@ -2,6 +2,7 @@ import {TodoCard} from "./TodoCard.tsx";
 import {Todo} from "../data/todo.ts";
 import '../assets/styles.css';
 import {useEffect, useState} from "react";
+import {statusToString} from "../status.ts";
 
 type TodoStatusColumnCardParams = {
     status: string,
@@ -23,13 +24,17 @@ export function TodoStatusColumnCard({status, todos}: TodoStatusColumnCardParams
 
     return (<>
         <div className="status-column-card">
-            <h2>TodoStatusColumnCard {status}</h2>
-            <p>links to open - in_prog - done</p>
-            <ul className="cards-list">
-                {selectedTodos.map((el: Todo) => {
-                    return <WrappedCard key={el.id} todo={el}/>
-                })}
-            </ul>
+            <div className="status-column-head">
+                <h2>{statusToString(status)}</h2>
+            </div>
+            <div className="status-column-body">
+
+                <ul className="cards-list">
+                    {selectedTodos.map((el: Todo) => {
+                        return <WrappedCard key={el.id} todo={el}/>
+                    })}
+                </ul>
+            </div>
         </div>
     </>)
 }

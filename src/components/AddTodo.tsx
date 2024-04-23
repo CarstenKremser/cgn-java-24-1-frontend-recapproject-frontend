@@ -7,9 +7,7 @@ export function AddTodo() {
 
     const [todoInput, setTodoInput] = useState("")
 
-
     function handleButtonOnClick() {
-        console.log("Create new ToDo: " + todoInput)
         const newTodo:Todo = {
             id: crypto.randomUUID(),
             description: todoInput,

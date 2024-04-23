@@ -6,6 +6,7 @@ import './App.css'
 import {Todo} from "./data/todo.ts";
 import axios from "axios";
 import {TodoPage} from "./pages/todoPage.tsx";
+import {EditPage} from "./pages/editPage.tsx";
 import {AllStatusColumnCard} from "./components/AllStatusColumnCard.tsx";
 import {Navigation} from "./components/Navigation.tsx";
 import {AddTodo} from "./components/AddTodo.tsx";
@@ -26,18 +27,18 @@ export default function App() {
     useEffect(() => getTodos(),[todos])
 
 
-
     return (
         <div className="App">
-            <Navigation />
+            <Navigation/>
             <Routes>
-                <Route path="/" element={<AllStatusColumnCard  todos={todos} />}/>
+                <Route path="/" element={<AllStatusColumnCard todos={todos}/>}/>
                 <Route path="/open" element={<TodoStatusColumnCard status={"OPEN"} todos={todos}/>}/>
                 <Route path="/inprog" element={<TodoStatusColumnCard status={"IN_PROGRESS"} todos={todos}/>}/>
                 <Route path="/done" element={<TodoStatusColumnCard status={"DONE"} todos={todos}/>}/>
-                <Route path="/todo/:id" element={<TodoPage />}/>
+                <Route path="/todo/:id" element={<TodoPage/>}/>
+                <Route path="/edit/:id" element={<EditPage/>}/>
             </Routes>
-            <AddTodo />
+            <AddTodo/>
         </div>
-    )
+    );
 }
