@@ -1,5 +1,7 @@
 import '../assets/AddTodo.css'
 import {ChangeEvent, useState} from "react";
+import {Todo} from "../data/todo.ts";
+import axios from "axios";
 
 export function AddTodo() {
 
@@ -9,7 +11,16 @@ export function AddTodo() {
     function handleButtonOnClick() {
         // TODO: hier Todo zusammenbauen und ans Backend geben (per POST-Request)
         console.log("Create new ToDo: " + todoInput)
-        setTodoInput("")
+        const newTodo:Todo = {
+            id: crypto.randomUUID(),
+            description: todoInput,
+            status: "OPEN"
+        }
+        axios
+            .post("/api/todo", newTodo)
+            .then(() => {
+                setTodoInput("")
+            })
     }
 
     function handleOnInputChange(event: ChangeEvent<HTMLInputElement>) {

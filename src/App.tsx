@@ -25,6 +25,8 @@ export default function App() {
 
     useEffect(() => getTodos(),[todos])
 
+
+
     return (
         <div className="App">
             <Navigation />
