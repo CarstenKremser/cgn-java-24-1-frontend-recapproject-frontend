@@ -1,5 +1,5 @@
 .active {
-    background-color: #555555;
+    background-color: darkgray;
 }
 
 nav {
@@ -14,7 +14,7 @@ nav {
     height: 4rem;
 }
 
-nav .navbar-title {
+nav>.navbar-title {
     font-size: 1.5rem;
     margin: 1rem;
     font-weight: bold;
@@ -22,18 +22,18 @@ nav .navbar-title {
     color: white;
 }
 
-nav ul.navbar-items {
+nav>ul.navbar-items {
     display: flex;
     flex-direction: row;
     padding-left: 0;
 
 }
 
-nav ul li {
+nav>ul>li {
     list-style: none;
 }
 
-nav ul li a {
+nav>ul>li>a {
     display: block;
     text-decoration: none;
     color: white;
@@ -45,7 +45,7 @@ nav ul li a {
     border-color: #333333
 }
 
-nav ul li a:not(.active):hover {
-    border-color: #555555;
+nav>ul>li>a:not(.active):hover {
+    border-color: darkgray;
 }
 
