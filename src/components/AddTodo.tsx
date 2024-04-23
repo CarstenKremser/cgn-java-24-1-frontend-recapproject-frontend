@@ -9,7 +9,6 @@ export function AddTodo() {
 
 
     function handleButtonOnClick() {
-        // TODO: hier Todo zusammenbauen und ans Backend geben (per POST-Request)
         console.log("Create new ToDo: " + todoInput)
         const newTodo:Todo = {
             id: crypto.randomUUID(),
